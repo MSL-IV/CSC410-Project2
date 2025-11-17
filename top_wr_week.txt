@@ -1,0 +1,12 @@
+player           | team | opponent | week | targets | receptions | receiving_yards | receiving_td | fantasy_points
+-----------------+------+----------+------+---------+------------+-----------------+--------------+---------------
+X.Worthy         | KC   | PHI      | 22   | 8       | 8          | 157             | 2            | 35.7          
+D.Smith          | PHI  | KC       | 22   | 5       | 4          | 69              | 1            | 16.9          
+A.Brown          | PHI  | KC       | 22   | 5       | 3          | 43              | 1            | 13.3          
+D.Hopkins        | KC   | PHI      | 22   | 5       | 2          | 18              | 1            | 11.8          
+J.Dotson         | PHI  | KC       | 22   | 3       | 2          | 42              | 0            | 6.2           
+J.Smith-Schuster | KC   | PHI      | 22   | 2       | 2          | 16              | 0            | 3.6           
+M.Brown          | KC   | PHI      | 22   | 6       | 2          | 15              | 0            | 3.5           
+Ju.Watson        | KC   | PHI      | 22   | 0       | 0          | 0               | 0            | 2.0           
+N.Remigio        | KC   | PHI      | 22   | 0       | 0          | 0               | 0            | 0.0           
+J.Wilson         | PHI  | KC       | 22   | 1       | 0          | 0               | 0            | 0.0           
