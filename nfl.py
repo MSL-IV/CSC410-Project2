@@ -6,6 +6,11 @@ import nflreadpy as nfl
 import polars as pl
 from requests import exceptions as req_exc
 
+try:
+    import pyarrow  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - environment dependent
+    pyarrow = None
+
 
 ColumnOptions = Sequence[str]
 
@@ -234,6 +239,13 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    if pyarrow is None:
+        print(
+            "pyarrow is required to read the nflverse parquet files but is not installed.\n"
+            'Install it with: pip install "pyarrow>=14,<16"'
+        )
+        return
+
     try:
         resolved_week, top_players = get_top_players_week(
             season=args.season,
@@ -242,7 +254,9 @@ def main() -> None:
             top_n=args.top,
             scoring=args.scoring,
         )
-    except req_exc.ConnectionError as err:
+    except (req_exc.RequestException, ConnectionError) as err:
+        # nflreadpy can raise either requests' ConnectionError or the builtin ConnectionError;
+        # catch both so a blocked/failed download is reported cleanly.
         print(
             "Unable to download stats from nflverse (network/DNS blocked). "
             "Re-run once you have internet access.\n"
